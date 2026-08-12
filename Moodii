@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Moodi | คุกกี้หลากอารมณ์</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Arial", sans-serif;
+    }
+
+    body {
+      background: #fff8f0;
+      color: #4b3328;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #9b5e3c;
+    }
+
+    .logo span {
+      color: #e69b55;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b3328;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #d98245;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 10%;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero-text h1 {
+      font-size: 60px;
+      line-height: 1.1;
+      color: #6b402d;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #e58d45;
+    }
+
+    .hero-text p {
+      font-size: 20px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      color: #72594c;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #d98245;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #b96732;
+      transform: translateY(-3px);
+    }
+
+    .cookie-box {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: #f7d7b5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 150px;
+      box-shadow: 0 20px 40px rgba(120,70,30,0.15);
+    }
+
+    /* MOOD */
+    .mood-section {
+      padding: 80px 8%;
+      background: #fff;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 38px;
+      color: #6b402d;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #8b7165;
+      margin-bottom: 40px;
+    }
+
+    .mood-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .mood-card {
+      padding: 30px 20px;
+      border-radius: 25px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .mood-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .happy {
+      background: #fff1a8;
+    }
+
+    .chill {
+      background: #ccefdc;
+    }
+
+    .love {
+      background: #ffd1dc;
+    }
+
+    .energy {
+      background: #ffd0a8;
+    }
+
+    .mood-icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .mood-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .mood-card p {
+      color: #6f5b50;
+      line-height: 1.5;
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 80px 8%;
+      text-align: center;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(80,50,30,0.08);
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-img {
+      height: 200px;
+      background: #f8dfc7;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 90px;
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .product-card p {
+      color: #806c60;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #d2783b;
+      margin-bottom: 15px;
+    }
+
+    /* ABOUT */
+    .about {
+      padding: 80px 12%;
+      background: #f5e4d3;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: 20px auto;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #695247;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #51362a;
+      color: white;
+      text-align: center;
+      padding: 35px;
+    }
+
+    footer h2 {
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      color: #e8d8cd;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 45px;
+      }
+
+      .cookie-box {
+        width: 280px;
+        height: 280px;
+        font-size: 100px;
+      }
+
+      .mood-container,
+      .product-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        padding: 50px 7%;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .mood-container,
+      .product-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Moodi<span>.</span></div>
+
+    <ul>
+      <li><a href="#home">หน้าแรก</a></li>
+      <li><a href="#mood">เลือกตามอารมณ์</a></li>
+      <li><a href="#products">คุกกี้</a></li>
+      <li><a href="#about">เกี่ยวกับเรา</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h1>
+        Cookie for<br>
+        every <span>Moodi.</span>
+      </h1>
+
+      <p>
+        คุกกี้ที่ไม่ได้มีดีแค่ความอร่อย
+        แต่เลือกให้เข้ากับอารมณ์ของคุณได้
+        เพราะทุกวัน...เรามีหลาย Mood
+      </p>
+
+      <a href="#mood" class="btn">
+        เลือกคุกกี้ตาม Mood 🍪
+      </a>
+
+    </div>
+
+    <div class="cookie-box">
+      🍪
+    </div>
+
+  </section>
+
+
+  <!-- MOOD -->
+  <section class="mood-section" id="mood">
+
+    <h2 class="section-title">
+      วันนี้คุณ Mood ไหน?
+    </h2>
+
+    <p class="section-subtitle">
+      เลือกอารมณ์ แล้วให้ Moodi เลือกคุกกี้ให้คุณ
+    </p>
+
+    <div class="mood-container">
+
+      <div class="mood-card happy">
+        <div class="mood-icon">😊</div>
+        <h3>Happy Mood</h3>
+        <p>
+          วันที่อยากยิ้มให้กว้างกว่าเดิม
+          ต้องเจอคุกกี้หวาน ๆ หอม ๆ
+        </p>
+      </div>
+
+      <div class="mood-card chill">
+        <div class="mood-icon">😌</div>
+        <h3>Chill Mood</h3>
+        <p>
+          วันสบาย ๆ กับคุกกี้รสละมุน
+          เหมาะกับการพักผ่อน
+        </p>
+      </div>
+
+      <div class="mood-card love">
+        <div class="mood-icon">🥰</div>
+        <h3>Love Mood</h3>
+        <p>
+          เติมความหวานให้หัวใจ
+          ด้วยคุกกี้ที่เต็มไปด้วยความรัก
+        </p>
+      </div>
+
+      <div class="mood-card energy">
+        <div class="mood-icon">⚡</div>
+        <h3>Energy Mood</h3>
+        <p>
+          วันที่ต้องการพลัง
+          เติมความอร่อยให้พร้อมลุย
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+
+    <h2 class="section-title">
+      Moodi Cookies
+    </h2>
+
+    <p class="section-subtitle">
+      คุกกี้ที่ออกแบบมาให้เข้ากับทุกอารมณ์
+    </p>
+
+    <div class="product-container">
+
+      <div class="product-card">
+
+        <div class="product-img">
+          🍪
+        </div>
+
+        <h3>Happy Choco Chip</h3>
+
+        <p>
+          ช็อกโกแลตชิปเข้มข้น
+          หวานกำลังดี กินแล้วอารมณ์ดี
+        </p>
+
+        <div class="price">฿59</div>
+
+        <a href="#" class="btn">
+          สั่งซื้อ
+        </a>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="product-img">
+          🍪
+        </div>
+
+        <h3>Chill Matcha</h3>
+
+        <p>
+          มัทฉะหอมละมุน
+          เหมาะกับวันพักผ่อนสบาย ๆ
+        </p>
+
+        <div class="price">฿65</div>
+
+        <a href="#" class="btn">
+          สั่งซื้อ
+        </a>
+
+      </div>
+
+
+      <div class="product-card">
+
+        <div class="product-img">
+          🍪
+        </div>
+
+        <h3>Love Strawberry</h3>
+
+        <p>
+          สตรอว์เบอร์รีหวานอมเปรี้ยว
+          เติมความสดใสให้หัวใจ
+        </p>
+
+        <div class="price">฿69</div>
+
+        <a href="#" class="btn">
+          สั่งซื้อ
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <h2 class="section-title">
+      About Moodi
+    </h2>
+
+    <p>
+      Moodi คือแบรนด์คุกกี้ที่เชื่อว่า
+      “ขนมหนึ่งชิ้นสามารถเข้ากับความรู้สึกของเราได้”
+      เราจึงออกแบบคุกกี้ให้มีหลากหลายรสชาติ
+      เพื่อให้ทุกคนสามารถเลือกคุกกี้ที่ตรงกับ Mood
+      ของตัวเองในแต่ละวัน
+    </p>
+
+    <a href="#products" class="btn">
+      Discover Your Mood 🍪
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h2>Moodi.</h2>
+
+    <p>
+      Cookies for every mood.
+    </p>
+
+    <p>
+      © 2026 Moodi Cookie. All Rights Reserved.
+    </p>
+
+  </footer>
+
+</body>
+</html>
